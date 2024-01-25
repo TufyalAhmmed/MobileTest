@@ -9,4 +9,7 @@ public class HomePage extends BasePage{
 
     public By HOME_CATEGORY = By.id("com.nopstation.nopcommerce.nopstationcart:id/rvHomeCategories");
     public By ELECTRONICS_BUTTON = By.xpath("//*[@text='Electronics']");
+    public By CART_BUTTON = By.id("com.nopstation.nopcommerce.nopstationcart:id/counterText");
+
+//    com.nopstation.nopcommerce.nopstationcart:id/counterIcon
 }
