@@ -21,10 +21,12 @@ public class ShoppingCartPage extends BasePage{
     public By PHONE_NUMBER = By.id("com.nopstation.nopcommerce.nopstationcart:id/etPhone");
     public By FAX = By.id("com.nopstation.nopcommerce.nopstationcart:id/etFax");
     public By CONTINUE_BUTTON = By.id("com.nopstation.nopcommerce.nopstationcart:id/btnContinue");
-    public By NEXT_DAY_AIR = By.xpath("(//*[@text='Next Day Air'])[1]/parent::android.widget.RelativeLayout");
+    public By SHIPPING_CONTINUE_BUTTON = By.xpath("(//*[@resource-id='com.nopstation.nopcommerce.nopstationcart:id/btnContinue'])[2]");
+    public By NEXT_DAY_AIR = By.xpath("(//*[@text='Next Day Air'])[2]/parent::android.widget.RelativeLayout");
     public By MONEY_ORDER = By.xpath("//*[@text='Check / Money Order']");
     public By NEXT_BUTTON = By.xpath("//android.widget.Button[@text='Next']");
-    public By CONFIRM_BUTTON = By.id("com.nopstation.nopcommerce.nopstationcart:id/rootScrollViewBillingAddress");
+    public By CONFIRM_BUTTON = By.id("com.nopstation.nopcommerce.nopstationcart:id/checkoutButton");
     public By POPUP_MESSAGE = By.id("com.nopstation.nopcommerce.nopstationcart:id/md_text_message");
+    public By ShippingList = By.xpath("(//android.widget.ScrollView)[2]");
 
 }

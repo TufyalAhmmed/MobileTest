@@ -113,7 +113,7 @@ public class BasePage {
         getDriver().findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(text(\"" + text + "\"));"));
     }
 
-    public void scrollInSpecificAreaToViewText(By scrollArea, String text){
+    public void scrollInSpecificAreaByHorizontal(By scrollArea, String text){
         String scrollAreaResourceID = getAttribute(scrollArea, "resource-id");
         getDriver().findElement(AppiumBy
                 .androidUIAutomator("new UiScrollable(new UiSelector().resourceId(\""+scrollAreaResourceID+"\")).setAsHorizontalList().scrollIntoView("
@@ -123,4 +123,14 @@ public class BasePage {
     public By get_element_locator_by_text(String text){
         return By.xpath("//*[@text=\'" + text + "\']");
     }
+    public void scrollInSpecificAreaByVertical(By scrollArea, String text){
+        String scrollAreaResourceID = getAttribute(scrollArea, "resource-id");
+        getDriver().findElement(AppiumBy
+                .androidUIAutomator("new UiScrollable(new UiSelector().resourceId(\""+scrollAreaResourceID+"\")).setAsVerticalList().scrollIntoView("
+                        + "new UiSelector().text(\""+text+"\"));"));
+    }
+
+
+
+
 }

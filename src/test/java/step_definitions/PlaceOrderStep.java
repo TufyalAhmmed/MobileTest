@@ -3,7 +3,6 @@ package step_definitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import pages.ElectronicsPage;
 import pages.HomePage;
@@ -24,7 +23,7 @@ public class PlaceOrderStep {
 
     @When("Mike click {string} from {string} list from home page")
     public void mike_click_from_list_from_home_page(String string, String string2) {
-        homePage.scrollInSpecificAreaToViewText(homePage.HOME_CATEGORY, string);
+        homePage.scrollInSpecificAreaByHorizontal(homePage.HOME_CATEGORY, string);
         homePage.click_on(homePage.ELECTRONICS_BUTTON);
     }
 
@@ -48,6 +47,7 @@ public class PlaceOrderStep {
 
     @Given("Mike go to shopping cart by clicking top cart icon")
     public void mike_go_to_shopping_cart_by_clicking_top_cart_icon() {
+//        homePage.click_on(homePage.READ_AND_ACCEPT_BUTTON);
         cartPage.click_on(homePage.CART_BUTTON);
     }
 
@@ -91,26 +91,40 @@ public class PlaceOrderStep {
 ////        Thread.sleep(5000);
 ////        Assert.assertEquals(cartPage.get_text_of(cartPage.NEXT_DAY_AIR), string);
 //        Thread.sleep(2000);
-        System.out.println("Next day year");
-        cartPage.click_on(cartPage.NEXT_DAY_AIR);
-        System.out.println("Next day year");
+//
+//        cartPage.click_on(cartPage.NEXT_DAY_AIR);
+//
+//        cartPage.scrollInSpecificAreaByVertical(cartPage.ShippingList,"CONTINUE");
+//
+//        cartPage.click_on(cartPage.SHIPPING_CONTINUE_BUTTON);
+
+        Thread.sleep(2000);
         cartPage.scrollInToViewText("CONTINUE");
-        System.out.println("Next day year");
-        cartPage.click_on(cartPage.get_element_locator_by_text("CONTINUE"));
-        System.out.println("Next day year");
+//        Thread.sleep(5000);
+//        Assert.assertEquals(cartPage.get_text_of(cartPage.NEXT_DAY_AIR), string);
+        Thread.sleep(2000);
+        cartPage.click_on(cartPage.NEXT_DAY_AIR);
+        cartPage.click_on(cartPage.SHIPPING_CONTINUE_BUTTON);
+
+
 
 
     }
 
     @Then("Mike select {string} as payment method and click continue")
     public void mike_select_as_payment_method_and_click_continue(String string) {
+//        cartPage.scrollInToViewText("CONTINUE");
+////        Assert.assertEquals(cartPage.get_text_of(cartPage.MONEY_ORDER), string);
+//
+//        cartPage.click_on(cartPage.MONEY_ORDER);
+//
+//        cartPage.click_on(cartPage.get_element_locator_by_text("CONTINUE"));
+
         cartPage.scrollInToViewText("CONTINUE");
-//        Assert.assertEquals(cartPage.get_text_of(cartPage.MONEY_ORDER), string);
-        System.out.println("Next day year");
+        Assert.assertEquals(cartPage.get_text_of(cartPage.MONEY_ORDER), string);
         cartPage.click_on(cartPage.MONEY_ORDER);
-        System.out.println("Next day year");
-        cartPage.click_on(cartPage.get_element_locator_by_text("CONTINUE"));
-        System.out.println("Next day year");
+        cartPage.click_on(cartPage.CONTINUE_BUTTON);
+
     }
 
     @Then("Mike click next button on payment information page")

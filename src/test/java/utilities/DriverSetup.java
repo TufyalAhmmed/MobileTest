@@ -43,10 +43,15 @@ public class DriverSetup {
         setDriver(driver);
     }
 
-    public static synchronized void quiteAndroidDriver(Scenario scenario){
-        takeScreenShot(scenario);
+//    public static synchronized void quiteAndroidDriver(Scenario scenario){
+//        takeScreenShot(scenario);
+////        getDriver().removeApp(resource.getString("appPackage"));
+//    }
+public static synchronized void quiteAndroidDriver(){
+//    takeScreenShot();
 //        getDriver().removeApp(resource.getString("appPackage"));
-    }
+//    getDriver().quit();
+}
 
     public static void takeScreenShot(Scenario scenario){
         if (scenario.isFailed()){
