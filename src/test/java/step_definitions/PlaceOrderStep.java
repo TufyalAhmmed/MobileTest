@@ -3,17 +3,26 @@ package step_definitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import pages.ElectronicsPage;
-import pages.HomePage;
-import pages.ProductDetailsPage;
-import pages.ShoppingCartPage;
+import pages.*;
+
+import java.time.Duration;
+import java.util.HashMap;
+
+import static utilities.DriverSetup.getDriver;
 
 public class PlaceOrderStep {
     ElectronicsPage electronicsPage = new ElectronicsPage();
     HomePage homePage = new HomePage();
     ProductDetailsPage productDetailsPage = new ProductDetailsPage();
     ShoppingCartPage cartPage = new ShoppingCartPage();
+    BasePage base = new BasePage();
 
     @Given("Mike on home page after opening nopCart mobile app")
     public void mike_on_home_page_after_opening_nop_cart_mobile_app() throws InterruptedException {
@@ -100,6 +109,21 @@ public class PlaceOrderStep {
 
         Thread.sleep(2000);
         cartPage.scrollInToViewText("CONTINUE");
+
+//        base.scrollUp();
+//        WebElement element = getDriver().findElement(By.xpath("(//*[@text='2nd Day Air'])[2]/parent::android.widget.RelativeLayout"));
+////        HashMap<String, Object> scrollObject = new HashMap<String, Object>();
+////        scrollObject.put("direction", "down");
+////        scrollObject.put("element", ((RemoteWebElement) element).getId());
+////        getDriver().executeScript("mobile: scrollGesture", scrollObject);
+//        HashMap<String, Object> scrollArgs = new HashMap<>();
+//        scrollArgs.put("element", ((RemoteWebElement) element).getId());
+//        scrollArgs.put("direction", "down");
+//        scrollArgs.put("percent", 1.0); // Adjust the percentage of the scroll as needed
+//
+//// 3. Execute the scroll gesture command
+////        getDriver().executeScript("mobile: scrollGesture", scrollArgs);
+//        ((JavascriptExecutor) getDriver()).executeScript("\"mobile: scrollGesture\", scrollArgs", element);
 //        Thread.sleep(5000);
 //        Assert.assertEquals(cartPage.get_text_of(cartPage.NEXT_DAY_AIR), string);
         Thread.sleep(2000);
@@ -120,7 +144,8 @@ public class PlaceOrderStep {
 //
 //        cartPage.click_on(cartPage.get_element_locator_by_text("CONTINUE"));
 
-        cartPage.scrollInToViewText("CONTINUE");
+//        cartPage.scrollInToViewText("CONTINUE");
+//        base.scrollUp();
         Assert.assertEquals(cartPage.get_text_of(cartPage.MONEY_ORDER), string);
         cartPage.click_on(cartPage.MONEY_ORDER);
         cartPage.click_on(cartPage.CONTINUE_BUTTON);

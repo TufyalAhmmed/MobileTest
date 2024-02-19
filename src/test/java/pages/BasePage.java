@@ -2,6 +2,7 @@ package pages;
 
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -128,6 +129,10 @@ public class BasePage {
         getDriver().findElement(AppiumBy
                 .androidUIAutomator("new UiScrollable(new UiSelector().resourceId(\""+scrollAreaResourceID+"\")).setAsVerticalList().scrollIntoView("
                         + "new UiSelector().text(\""+text+"\"));"));
+    }
+    public void scrollUp() {
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("window.scrollBy(0,-350)", "");
     }
 
 

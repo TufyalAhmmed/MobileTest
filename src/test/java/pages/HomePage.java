@@ -13,3 +13,9 @@ public class HomePage extends BasePage{
 
 //    com.nopstation.nopcommerce.nopstationcart:id/counterIcon
 }
+//public sum(){
+//    int a = 5;
+//    int b = 5;
+//    int summ = a+b;
+//    System.out.println(summ);
+//}
